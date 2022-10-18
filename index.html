@@ -17,7 +17,7 @@
       referrerpolicy="no-referrer"
     ></script>
     <style>
-      form {
+      #form {
         display: none;
       }
       .center {
@@ -40,9 +40,12 @@
           </video>
         </div>
       </section>
-      <section class="row">
+      <section id="form" class="row">
         <div class="col-12">
-          <form id="form">
+          <button id="showVideo" class="btn btn-outline-dark">
+            Want to watch video again?
+          </button>
+          <form>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"
                 >Email address</label
@@ -88,9 +91,12 @@
         .getElementById("myVideo")
         .addEventListener("ended", myHandler, false);
       function myHandler(e) {
-        $("#myVideo").fadeOut(400);
-        $("#form").slideToggle(600);
-
+        $("#myVideo").slideUp(600);
+        $("#form").slideDown(600);
+        $("#showVideo").click(function () {
+          $("#myVideo").slideDown(600);
+          $("#form").slideUp(600);
+        });
         // alert("hello");
       }
     </script>
